@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,7 +14,7 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
-@Table(name = "timeline")
+@Table(name = "timeline",uniqueConstraints={@UniqueConstraint(name="Name",columnNames={"name"})})
 @EqualsAndHashCode(callSuper = false)
 public class Timeline extends GenericAuditEntity<Long> implements Serializable {
 
